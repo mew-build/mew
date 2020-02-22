@@ -15,5 +15,5 @@ let
   }).rust;
 in
 pkgs.mkShell {
-  buildInputs = [ rust ];
+  buildInputs = [ rust pkgs.asciidoctor ];
 }

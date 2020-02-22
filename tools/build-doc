@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+shopt -s nullglob
+
+if [[ -z ${1-} ]]; then
+    printf >&2 'usage: tools/build-docs <out-dir>\n'
+    exit 2
+fi
+
+out=$1
+shift
+
+render() {
+    asciidoctor --warnings \
+        -a linkcss -a nofooter -a webfonts! -a docinfo=shared,private \
+        --destination-dir="$out" "$@"
+}
+
+# ugh, relative paths
+render -a docinfodir=doc/meta -a root=index.html "$@" \
+  --out-file=index.html README.adoc
+render -a docinfodir=doc/meta -a root=index.html "$@" COPYING-*.adoc
+render -a docinfodir=meta -a root=index.html "$@" doc/*.adoc
+cp doc/meta/*.{png,gif,jpg} "$out"
