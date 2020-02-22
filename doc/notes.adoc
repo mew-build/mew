@@ -87,6 +87,22 @@ hello-tree : Tree (Dir {
 — execute (hello-tree ▻ get "bin" ▻ get "hello") : …
 ----
 
+Could probably use row types for this:
+
+[source,mewl]
+----
+— essentially mapping from identifiers to the specified type
+Row : Type → Type
+
+⦃
+  bin : Dir ⦃hello : Executable},
+  share : Dir ⦃doc : Dir ⦃hello : Dir ⦃README : Blob⦄⦄⦄,
+⦄ : Row TreeSpec
+----
+
+Then we can get nicer `bin : …` syntax by punning on the fact
+that rows would also be used to specify record types.
+
 == Investigate Guix properly
 
 and raid it for ideas.
