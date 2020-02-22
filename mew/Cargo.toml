@@ -1,0 +1,13 @@
+[package]
+name = "mew"
+version = "0.0.0"
+authors = ["Emily <mew@emily.moe>"]
+edition = "2018"
+license = "Apache-2.0 OR MIT"
+description = "a next‐generation build system (vapourware)"
+homepage = "https://mew.build/"
+repository = "https://github.com/mew-build/mew"
+# don’t pollute keywords with a basically‐empty package
+#keywords = ["cli", "build", "language"]`
+
+[dependencies]
