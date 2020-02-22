@@ -10,3 +10,7 @@
   2018.
   _Proceedings of the ACM on Programming Languages (Proc. ACM Program)_.
   https://doi.org/10.1145/3236774[doi:10.1145/3236774].
+
+* https://dhall-lang.org/[The Dhall configuration language].
+  Gabriel Gonzalez.
+  2017.
