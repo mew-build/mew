@@ -18,6 +18,40 @@ an accompanying large blob storage system (certainly SQLite)
 and then don’t bother using those options
 because that would be way too much work.
 
+== Reference format
+
+0x00/`uu:…`:: A universally unique random identifier.
+0x01/`b3:…`:: A https://github.com/BLAKE3-team/BLAKE3[BLAKE3] hash.
+…:: Extensible! Let’s hope we never need more than 255 hash functions.
+
+Hash/UUID payload is 31 bytes so that the reference as a whole
+is 256 bits.
+
+TODO: Come up with a name for `uu:…` identifiers that doesn’t clash
+with standard 128 bit UUIDs.
+
+----
+# Hash a constant
+$ mew ref 1234
+b3:…
+
+# Import and hash a file
+$ mew ref -f ./file
+b3:…
+
+# Hash a file without importing into the forest
+$ mew ref -n -f ./file
+b3:…
+
+# Download and import a file
+$ mew ref -f https://example.com/example-1.0.tar.gz
+b3:…
+
+# Generate a unique random identifier
+$ mew ref -u
+uu:…
+----
+
 == Sketch out the mewl language
 
 Somewhere between a purely functional shell
