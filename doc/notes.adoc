@@ -59,6 +59,20 @@ rather than just the HEAD.
 See above, though tapping a YubiKey a few times
 when pushing to the public repository isn’t too bad.
 
+=== Move to self‐hosted infrastructure
+
+GitHub https://github.com/drop-ice/dear-github-2.0[supports ICE],
+and it would be nice to have the root of trust for binary builds
+under our direct control.
+
+This would require manually administering build and VCS machines,
+prevent the use of the existing bors implementation,
+and substantially increasing the barrier to contribution,
+so it should be done carefully:
+ideally people would still be able to contribute
+via GitHub issues and pull requests
+and have them automatically mirrored to the self‐hosted infrastructure.
+
 === Prohibit force pushes
 
 let’s not get ahead of ourselves here
