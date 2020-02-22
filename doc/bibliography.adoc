@@ -1,0 +1,12 @@
+= References, reading material and prior art
+
+* _https://nixos.org/~eelco/pubs/nspfssd-lisa2004-final.pdf[Nix: A Safe and Policy‐Free System for Software Deployment]_.
+  Eelco Dolstra, Merijn de Jonge, and Eelco Visser.
+  2004.
+  _18th Large Installation System Administration Conference (LISA ’04)_.
+
+* _https://www.microsoft.com/en-us/research/publication/build-systems-la-carte/[Build Systems à la Carte]_.
+  Andrey Mokhov, Neil Mitchell, and Simon Peyton Jones.
+  2018.
+  _Proceedings of the ACM on Programming Languages (Proc. ACM Program)_.
+  https://doi.org/10.1145/3236774[doi:10.1145/3236774].
