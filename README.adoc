@@ -17,4 +17,4 @@ Copyright © 2020 mew contributors
 
 mew is licensed under either the
 link:COPYING-Apache-2.0.adoc[Apache License, Version 2.0]
-or the link:COPYING-MIT.adoc[MIT licence], at your option.
+or the link:COPYING-MIT.adoc[MIT/Expat licence], at your option.
