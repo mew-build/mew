@@ -7,9 +7,9 @@ https://shakebuild.com/[Shake]
 while being portable to a wide variety of operating systems
 and not depending on a large runtime environment like Java.
 
-Right now it's not much of anything, as you can see.
-But there is a link:doc/bibliography.adoc[very incomplete bibliography]
-of sorts.
+Right now it's not much of anything, as you can see. But there is a
+link:doc/bibliography.adoc[very incomplete bibliography] of sorts,
+and some link:doc/notes.adoc[development notes].
 
 == Licence
 

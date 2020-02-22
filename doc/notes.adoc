@@ -1,0 +1,64 @@
+= Development notes and plans
+
+== Backing storage options to consider
+
+* Plain old filesystem
+  (probably won’t scale with the level of caching granularity
+  we might want to aspire to)
+* https://rocksdb.org/[RocksDB] / https://github.com/google/leveldb[LevelDB]
+* https://github.com/spacejam/sled[sled]
+** https://tikv.org/[TiKV] for distributed stores would be interesting,
+   though probably excessive (there’s not as much chance of conflict
+   in a largely content‐addressed database)
+* https://symas.com/lmdb/[LMDB]
+* https://sqlite.org/[SQLite]
+
+Investigate which of these options would need
+an accompanying large blob storage system (certainly SQLite)
+and then don’t bother using those options
+because that would be way too much work.
+
+== Sketch out the mewl language
+
+Somewhere between a purely functional shell
+and https://dhall-lang.org/[Dhall];
+implementation tightly integrated with the build store interface.
+
+Ensuring adherence to object‐capability principles is Very Important™.
+
+== Investigate Guix properly
+
+and raid it for ideas.
+
+== Meta
+
+=== Move nixpkgs{,-mozilla} pins to fetchFromGitHub
+
+Easier to include in `cargo publish` tarballs.
+
+=== Set up a more formal documentation system
+
+And then preferably have it publish to https://mew.build/[mew.build].
+
+=== Set up CI
+
+Investigate Azure Pipelines and GitHub Actions.
+
+=== Set up bors
+
+This will probably be really annoying in the early stages of hacking,
+depending on the latency.
+
+It would be good to integrate the bors setup
+with https://github.com/spotify/git-test[git-test]
+to test all the commits of a pull request
+rather than just the HEAD.
+
+=== Set up and require commit signing
+
+See above, though tapping a YubiKey a few times
+when pushing to the public repository isn’t too bad.
+
+=== Prohibit force pushes
+
+let’s not get ahead of ourselves here
