@@ -1,0 +1,9 @@
+[submodule "extern/nixpkgs"]
+	path = extern/nixpkgs
+	url = https://github.com/emilazy/nixpkgs.git
+	branch = emily
+	shallow = true
+[submodule "extern/nixpkgs-mozilla"]
+	path = extern/nixpkgs-mozilla
+	url = https://github.com/mozilla/nixpkgs-mozilla
+	shallow = true
