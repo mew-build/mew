@@ -9,5 +9,11 @@ homepage = "https://mew.build/"
 repository = "https://github.com/mew-build/mew"
 # don’t pollute keywords with a basically‐empty package
 #keywords = ["cli", "build", "language"]`
+#categories = [
+#    "caching",
+#    "command-line-utilities",
+#    "development-tools",
+#    "development-tools::build-utils",
+#]
 
 [dependencies]
