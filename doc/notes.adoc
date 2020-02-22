@@ -93,7 +93,7 @@ under our direct control.
 
 This would require manually administering build and VCS machines,
 prevent the use of the existing bors implementation,
-and substantially increasing the barrier to contribution,
+and substantially increase the barrier to contribution,
 so it should be done carefully:
 ideally people would still be able to contribute
 via GitHub issues and pull requests
