@@ -63,10 +63,10 @@ Ensuring adherence to object‐capability principles is Very Important™.
 === Typed tree structure sketch
 
 ----
-TreeType : Type
-Dir : Map PathComponent TreeType → TreeType
-File : TreeType
-Executable : TreeType
+TreeSpec : Type
+Dir : Map PathComponent TreeSpec → TreeSpec
+Blob : TreeSpec
+Executable : TreeSpec
 
 Tree : TreeType → Type
 get : (p : PathComponent) → ∀ts ⇒ Tree (Dir ts) → (e : p ∈ ts) ⇒ Tree (value e)
@@ -79,7 +79,7 @@ execute? : ∀t ⇒ Tree t → Option …
 — also contain arbitrary other trees in addition
 hello-tree : Tree (Dir {
   "bin" = Dir {"hello" = Executable},
-  "share" = Dir {"doc" = Dir {"hello" = Dir {"README" = File}}},
+  "share" = Dir {"doc" = Dir {"hello" = Dir {"README" = Blob}}},
 })
 
 — hello-tree ▻ get "bin" : Tree (Dir {"hello" = Executable})
