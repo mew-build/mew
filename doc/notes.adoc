@@ -26,6 +26,32 @@ implementation tightly integrated with the build store interface.
 
 Ensuring adherence to object‐capability principles is Very Important™.
 
+=== Typed tree structure sketch
+
+----
+TreeType : Type
+Dir : Map PathComponent TreeType → TreeType
+File : TreeType
+Executable : TreeType
+
+Tree : TreeType → Type
+get : (p : PathComponent) → ∀ts ⇒ Tree (Dir ts) → (e : p ∈ ts) ⇒ Tree (value e)
+get? : PathComponent → ∀ts ⇒ Tree (Dir ts) → Option (∃t · Tree t)
+execute : Tree Executable → …
+execute? : ∀t ⇒ Tree t → Option …
+
+— guaranteed to contain bin/hello, which you can execute (including
+— from build rules), and share/doc/hello/README, a plain blob, but can
+— also contain arbitrary other trees in addition
+hello-tree : Tree (Dir {
+  "bin" = Dir {"hello" = Executable},
+  "share" = Dir {"doc" = Dir {"hello" = Dir {"README" = File}}},
+})
+
+— hello-tree ▻ get "bin" : Tree (Dir {"hello" = Executable})
+— execute (hello-tree ▻ get "bin" ▻ get "hello") : …
+----
+
 == Investigate Guix properly
 
 and raid it for ideas.
