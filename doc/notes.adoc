@@ -62,6 +62,7 @@ Ensuring adherence to object‐capability principles is Very Important™.
 
 === Typed tree structure sketch
 
+[source,mewl]
 ----
 TreeSpec : Type
 Dir : Map PathComponent TreeSpec → TreeSpec
