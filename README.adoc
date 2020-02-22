@@ -1,6 +1,10 @@
 = mew
 
 mew is going to be a next‐generation free software build system.
+It aims to combine some of the best attributes of
+https://bazel.build/[Bazel], https://nixos.org/nix/[Nix], and
+https://shakebuild.com/[Shake] while being portable to a wide variety of
+operating systems.
 
 Right now it's not much of anything, as you can see.
 But there is a link:doc/bibliography.adoc[very incomplete bibliography]
