@@ -7,7 +7,6 @@ pkgs.mkShell {
   nativeBuildInputs = [
     pkgs.niv
     rust
-    crate2nix
     pkgs.asciidoctor
   ];
 }

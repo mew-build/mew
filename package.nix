@@ -3,8 +3,7 @@
 , runCommand
 , callPackage
 , nix-gitignore
-, buildRustCrate
-, crate2nix
+, buildCargoCrates
 , asciidoctor
 }:
 
@@ -12,17 +11,11 @@ let
   pname = "mew";
   src = nix-gitignore.gitignoreSource ["/.git" ./.ignore] ./.;
 
-  cargoNix =
-    runCommand "Cargo-${pname}.nix" {
-      inherit src;
-      nativeBuildInputs = [ crate2nix ];
-    } ''
-      cd $src
-      crate2nix generate --output $out
-    '';
+  crates = buildCargoCrates {
+    name = pname;
+    inherit src;
+  };
 
-  cargo = callPackage cargoNix { inherit buildRustCrate; };
-  crates = cargo.workspaceMembers;
   mew = (crates.mew.build.override {
     runTests = true;
   }).overrideAttrs (_: { inherit src; });

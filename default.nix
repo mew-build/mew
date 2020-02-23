@@ -3,10 +3,11 @@
 }:
 
 let
+  # TODO: is this really better than using it as an overlay?
   rust-overlay =
     import (sources.nixpkgs-mozilla + "/rust-overlay.nix") pkgs pkgs;
 
-  crate2nix = import sources.crate2nix { inherit pkgs; };
+  crate2nix-tools = import (sources.crate2nix + "/tools.nix") { inherit pkgs; };
 
   # check https://rust-lang.github.io/rustup-components-history/index.html
   # for rustfmt, clippy, rls, etc.
@@ -20,9 +21,12 @@ let
     rustc = rustChannel.rust;
   };
 
-  deps = { inherit buildRustCrate crate2nix; };
+  buildCargoCrates = pkgs.callPackage ./nix/build-cargo-crates.nix {
+    inherit buildRustCrate;
+    inherit (crate2nix-tools) generatedCargoNix;
+  };
 in
-pkgs.callPackage ./package.nix deps // deps // {
+pkgs.callPackage ./package.nix { inherit buildCargoCrates; } // {
   inherit pkgs;
   rust = rustChannel.rust;
 }
