@@ -25,7 +25,9 @@ let
 
   cargo = callPackage cargoNix { inherit buildRustCrate; };
   crates = cargo.workspaceMembers;
-  mew = crates.mew.build.overrideAttrs (_: { inherit src; });
+  mew = (crates.mew.build.override {
+    runTests = true;
+  }).overrideAttrs (_: { inherit src; });
 
   doc-html = stdenvNoCC.mkDerivation {
     name = "${pname}-doc-html";
