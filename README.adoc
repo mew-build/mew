@@ -24,10 +24,26 @@ and Linux distribution, don’t say we didn’t warn you.
 [[under-construction]]
 image::under-construction.gif[⚠️ Under construction ⚠️,76,76]
 
-== Links
+== Resources
 
-* https://mew.build/
-* https://github.com/mew-build/mew[GitHub repository]
+Website:: https://mew.build/
+
+Git repository::
+https://github.com/mew-build/mew[mew-build/mew] on GitHub
++
+----
+$ git clone https://github.com/mew-build/mew.git
+----
+
+Development chat::
+Matrix::: https://matrix.to/#/#mew-build:matrix.org[#mew-build:matrix.org]
+(https://view.matrix.org/alias/%23mew-build:matrix.org[logs])
+IRC::: link:ircs://chat.freenode.net:6697/%23mew[#mew]
+on https://freenode.net/[freenode]
+(https://freenode.logbot.info/mew[logs])
+
++
+The same room is bridged across both protocols.
 
 == Licence
 :relfileprefix:
