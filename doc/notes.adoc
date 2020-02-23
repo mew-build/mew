@@ -95,7 +95,7 @@ Could probably use row types for this:
 Row : Type → Type
 
 ⦃
-  bin : Dir ⦃hello : Executable},
+  bin : Dir ⦃hello : Executable⦄,
   share : Dir ⦃doc : Dir ⦃hello : Dir ⦃README : Blob⦄⦄⦄,
 ⦄ : Row TreeSpec
 ----
