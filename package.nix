@@ -8,7 +8,7 @@
 }:
 let
   pname = "mew";
-  src = nix-gitignore.gitignoreSource [ "/.git" ./.ignore ] ./.;
+  src = nix-gitignore.gitignoreSource [ "/.git" ] ./.;
 
   crates = buildCargoCrates {
     name = pname;

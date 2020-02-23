@@ -1,2 +1,0 @@
-# don’t include nixpkgs in Nix derivation source or ripgrep results
-/extern/
