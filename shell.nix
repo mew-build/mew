@@ -1,19 +1,14 @@
 { nixpkgs ? ./extern/nixpkgs
 , nixpkgs-mozilla ? ./extern/nixpkgs-mozilla
-}:
+, crate2nix ? ./extern/crate2nix
+}@args:
 
-let
-  pkgs = import nixpkgs {
-    overlays = [ (import (nixpkgs-mozilla + "/rust-overlay.nix")) ];
-  };
-
-  # check https://rust-lang.github.io/rustup-components-history/index.html
-  # for rustfmt, clippy, rls, etc.
-  rust = (pkgs.rustChannelOf {
-    rustToolchain = ./rust-toolchain;
-    sha256 = "08pnblrkz7ban3ykbik7pf5xb2ji9h4lv4ihkbxjm8lr5rvqza3z";
-  }).rust;
-in
+let mew = import ./default.nix args;
+in with mew;
 pkgs.mkShell {
-  buildInputs = [ rust pkgs.asciidoctor ];
+  nativeBuildInputs = [
+    rust
+    crate2nix
+    pkgs.asciidoctor
+  ];
 }

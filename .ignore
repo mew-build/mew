@@ -1,2 +1,2 @@
-# ignore nixpkgs when using ripgrep
+# don’t include nixpkgs in Nix derivation source or ripgrep results
 /extern/

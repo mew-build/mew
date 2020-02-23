@@ -7,3 +7,7 @@
 	path = extern/nixpkgs-mozilla
 	url = https://github.com/mozilla/nixpkgs-mozilla
 	shallow = true
+[submodule "extern/crate2nix"]
+	path = extern/crate2nix
+	url = https://github.com/kolloch/crate2nix
+	shallow = true
