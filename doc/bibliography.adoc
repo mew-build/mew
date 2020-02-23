@@ -14,3 +14,19 @@
 * https://dhall-lang.org/[The Dhall configuration language].
   Gabriel Gonzalez.
   2017.
+
+* http://habitatchronicles.com/2017/05/what-are-capabilities/[“What Are Capabilities?”].
+  Chip Morningstar.
+  2017.
+
+* http://srl.cs.jhu.edu/pubs/SRL2003-02.pdf[“Capability Myths Demolished”].
+  Mark S. Miller, Ka‐Ping Yee, Jonathan Shapiro.
+  2003.
+  https://web.archive.org/web/20160730083134/http://www.eros-os.org/pipermail/cap-talk/2003-March/001133.html[Rejected from the _2003 USENIX Security Symposium_(!)].
+
+* http://www.erights.org/talks/thesis/markm-thesis.pdf[“Robust Composition: Towards a Unified Approach to Access Control and Concurrency Control”].
+  Mark S. Miller.
+  2006.
+  Johns Hopkins University.
+  I’ll let you in on a secret: I haven’t actually read this one
+  myself yet.
