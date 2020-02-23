@@ -119,6 +119,12 @@ that rows would also be used to specify record types.
 
 and raid it for ideas.
 
+== Incremental computation for configuration management
+
+http://adapton.org/[Adapton] seems like it should have insights
+that are applicable to modelling Ansible/Terraform‐style
+reconciliation of configuration with state in a pure system.
+
 == Meta
 
 === Move nixpkgs{,-mozilla} pins to fetchFromGitHub
