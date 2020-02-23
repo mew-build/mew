@@ -52,6 +52,18 @@ $ mew ref -u
 uu:…
 ----
 
+== Investigate network protocol/RPC options
+
+gRPC and Cap’n Proto are the main contenders here.
+Maybe figure out if gRPC could be used with Cap’n Proto payloads,
+or hand‐roll something based on Cap’n Proto + QUIC/HTTP 3.
+
+=== Compare Rust QUIC/HTTP 3 libraries
+
+* https://github.com/mozilla/neqo
+* https://github.com/cloudflare/quiche
+* https://github.com/djc/quinn
+
 == Sketch out the mewl language
 
 Somewhere between a purely functional shell
