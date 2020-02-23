@@ -5,18 +5,65 @@
 * Plain old filesystem
   (probably won’t scale with the level of caching granularity
   we might want to aspire to)
+
 * https://rocksdb.org/[RocksDB] / https://github.com/google/leveldb[LevelDB]
+
 * https://github.com/spacejam/sled[sled]
+** Author recommends comparing against PingCAP’s TitanDB
+   for the large blob workload:
++
+[quote,'http://tylerneely.com/[Tyler Neely] (https://github.com/spacejam[@spacejam])']
+____
+one DB that might be interesting to benchmark for your workload
+against sled is PingCAP's titandb, which separates keys from values,
+and I think they might move values even less over time, so that could
+be one of the better options
+
+they use the WiscKey DB architecture of keeping keys in an LSM but
+values out of it so they can avoid moving values as often. this is the
+same approach used in the Badger DB for the Go ecosystem that is nice
+in some situations
+____
 ** https://tikv.org/[TiKV] for distributed stores would be interesting,
    though probably excessive (there’s not as much chance of conflict
    in a largely content‐addressed database)
+
 * https://symas.com/lmdb/[LMDB]
+
 * https://sqlite.org/[SQLite]
 
 Investigate which of these options would need
 an accompanying large blob storage system (certainly SQLite)
 and then don’t bother using those options
 because that would be way too much work.
+The sled author’s remarks on the topic:
+
+[quote,'http://tylerneely.com/[Tyler Neely] (https://github.com/spacejam[@spacejam])']
+____
+the general reason why most DBs will suggest punting to a FS for that
+kind of thing is because over time, databases will tend to rearrange
+items internally in order to perform defragmentation etc... sled will
+actually just spill over to using a file itself, but as I'm writing this
+it will only split leaf nodes when they hit 17 children, so if you have
+17 1gb values all clustered on one leaf, sled will need to read that
+whole 17gb file in before serving your data
+
+having said that, it isn't that much work to change how sled splits leaf
+nodes to increase this granularity, so each 1gb value would get its
+own file
+
+DBs usually assume they can copy values over and over pretty cheaply,
+and for most DB's this is indeed sort of a nightmare workload
+
+but right now, sled only splits leafs when they exceed the 16 child
+limit. in general I want to make this more size based, but as of right
+now it's up to 16 values per node, and this stuff happens per-node
+rather than per-key
+
+anyway, the bottom line is, measure it 🙂
+
+as the creator of the thing I'll always be aware of ways of making it better, but maybe for you it's already good enough
+____
 
 == Reference format
 
