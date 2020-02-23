@@ -1,16 +1,16 @@
-{ nixpkgs ? ./extern/nixpkgs
-, nixpkgs-mozilla ? ./extern/nixpkgs-mozilla
-, crate2nix ? ./extern/crate2nix
+{ sources ? import ./nix/sources.nix
+, pkgs ? import sources.nixpkgs {}
 }:
 
 let
-  pkgs = import nixpkgs {
-    overlays = [ (import (nixpkgs-mozilla + "/rust-overlay.nix")) ];
-  };
+  rust-overlay =
+    import (sources.nixpkgs-mozilla + "/rust-overlay.nix") pkgs pkgs;
+
+  crate2nix = import sources.crate2nix { inherit pkgs; };
 
   # check https://rust-lang.github.io/rustup-components-history/index.html
   # for rustfmt, clippy, rls, etc.
-  rustChannel = pkgs.rustChannelOf {
+  rustChannel = rust-overlay.rustChannelOf {
     rustToolchain = ./rust-toolchain;
     sha256 = "08pnblrkz7ban3ykbik7pf5xb2ji9h4lv4ihkbxjm8lr5rvqza3z";
   };
@@ -20,13 +20,9 @@ let
     rustc = rustChannel.rust;
   };
 
-  crate2nixPkg = import crate2nix { inherit pkgs; };
+  deps = { inherit buildRustCrate crate2nix; };
 in
-pkgs.callPackage ./package.nix {
-  inherit buildRustCrate;
-  crate2nix = crate2nixPkg;
-} // {
-  inherit pkgs buildRustCrate;
+pkgs.callPackage ./package.nix deps // deps // {
+  inherit pkgs;
   rust = rustChannel.rust;
-  crate2nix = crate2nixPkg;
 }

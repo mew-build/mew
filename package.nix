@@ -18,9 +18,7 @@ let
       nativeBuildInputs = [ crate2nix ];
     } ''
       cd $src
-      crate2nix generate \
-        --nixpkgs-path ./extern/nixpkgs \
-        --output $out
+      crate2nix generate --output $out
     '';
 
   cargo = callPackage cargoNix { inherit buildRustCrate; };

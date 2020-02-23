@@ -1,0 +1,38 @@
+{
+    "crate2nix": {
+        "branch": "master",
+        "description": "nix build file generator for rust crates",
+        "homepage": "",
+        "owner": "kolloch",
+        "repo": "crate2nix",
+        "rev": "ce12d9e534dae09096a82defd1f434138989aabd",
+        "sha256": "19xbd9y1mcy1j97qxgir83i030jpic2lchyfnk7fvdyb4dvp34fv",
+        "type": "tarball",
+        "url": "https://github.com/kolloch/crate2nix/archive/ce12d9e534dae09096a82defd1f434138989aabd.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "nixpkgs": {
+        "branch": "nixpkgs-unstable",
+        "description": "A read-only mirror of NixOS/nixpkgs tracking the released channels. Send issues and PRs to",
+        "homepage": "https://github.com/NixOS/nixpkgs",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "1fe82110febdf005d97b2927610ee854a38a8f26",
+        "sha256": "08x6saa7iljyq2m0j6p9phy0v17r3p8l7vklv7y7gvhdc7a85ppi",
+        "type": "tarball",
+        "url": "https://github.com/NixOS/nixpkgs/archive/1fe82110febdf005d97b2927610ee854a38a8f26.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "nixpkgs-mozilla": {
+        "branch": "master",
+        "description": "mozilla related nixpkgs (extends nixos/nixpkgs repo)",
+        "homepage": null,
+        "owner": "mozilla",
+        "repo": "nixpkgs-mozilla",
+        "rev": "e912ed483e980dfb4666ae0ed17845c4220e5e7c",
+        "sha256": "08fvzb8w80bkkabc1iyhzd15f4sm7ra10jn32kfch5klgl0gj3j3",
+        "type": "tarball",
+        "url": "https://github.com/mozilla/nixpkgs-mozilla/archive/e912ed483e980dfb4666ae0ed17845c4220e5e7c.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    }
+}

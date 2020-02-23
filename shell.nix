@@ -1,12 +1,11 @@
-{ nixpkgs ? ./extern/nixpkgs
-, nixpkgs-mozilla ? ./extern/nixpkgs-mozilla
-, crate2nix ? ./extern/crate2nix
+{ sources ? import ./nix/sources.nix
+, pkgs ? import sources.nixpkgs {}
 }@args:
 
-let mew = import ./default.nix args;
-in with mew;
+with import ./. args;
 pkgs.mkShell {
   nativeBuildInputs = [
+    pkgs.niv
     rust
     crate2nix
     pkgs.asciidoctor
