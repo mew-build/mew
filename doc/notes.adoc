@@ -180,14 +180,6 @@ is probably worth referencing.
 
 == Meta
 
-=== Move nixpkgs{,-mozilla} pins to fetchFromGitHub
-
-Easier to include in `cargo publish` tarballs.
-
-=== Set up a more formal documentation system
-
-And then preferably have it publish to https://mew.build/[mew.build].
-
 === Set up CI
 
 Investigate Azure Pipelines and GitHub Actions.
