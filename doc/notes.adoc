@@ -172,6 +172,12 @@ http://adapton.org/[Adapton] seems like it should have insights
 that are applicable to modelling Ansible/Terraform‐style
 reconciliation of configuration with state in a pure system.
 
+== Toolchains and bootstrapping
+
+Shiz’s LLVM + clang + LLD + elftoolchain + compiler-rt + libc++ Linux
+https://github.com/Shizmob/aports/commits/system-llvm-elftoolchain[toolchain work]
+is probably worth referencing.
+
 == Meta
 
 === Move nixpkgs{,-mozilla} pins to fetchFromGitHub
