@@ -3,14 +3,14 @@
 == Backing storage options to consider
 
 * Plain old filesystem
-  (probably won’t scale with the level of caching granularity
-  we might want to aspire to)
+(probably won’t scale with the level of caching granularity
+we might want to aspire to)
 
 * https://rocksdb.org/[RocksDB] / https://github.com/google/leveldb[LevelDB]
 
 * https://github.com/spacejam/sled[sled]
 ** Author recommends comparing against PingCAP’s TitanDB
-   for the large blob workload:
+for the large blob workload:
 +
 [quote,'http://tylerneely.com/[Tyler Neely] (https://github.com/spacejam[@spacejam])']
 ____
@@ -25,8 +25,8 @@ same approach used in the Badger DB for the Go ecosystem that is nice
 in some situations
 ____
 ** https://tikv.org/[TiKV] for distributed stores would be interesting,
-   though probably excessive (there’s not as much chance of conflict
-   in a largely content‐addressed database)
+though probably excessive (there’s not as much chance of conflict
+in a largely content‐addressed database)
 
 * https://symas.com/lmdb/[LMDB]
 
