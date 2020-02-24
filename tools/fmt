@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+status=0
+# always run both for diagnostics
+cargo fmt -- "$@" || status=$?
+find . \
+  -name '*.nix' -a '!' -path ./nix/sources.nix \
+  -exec nixpkgs-fmt "$@" '{}' + || status=$?
+exit $status

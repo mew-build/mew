@@ -6,10 +6,9 @@
 , buildCargoCrates
 , asciidoctor
 }:
-
 let
   pname = "mew";
-  src = nix-gitignore.gitignoreSource ["/.git" ./.ignore] ./.;
+  src = nix-gitignore.gitignoreSource [ "/.git" ./.ignore ] ./.;
 
   crates = buildCargoCrates {
     name = pname;
@@ -18,7 +17,9 @@ let
 
   mew = (crates.mew.build.override {
     runTests = true;
-  }).overrideAttrs (_: { inherit src; });
+  }
+  ).overrideAttrs
+    (_: { inherit src; });
 
   doc-html = stdenvNoCC.mkDerivation {
     name = "${pname}-doc-html";

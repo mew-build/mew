@@ -23,6 +23,18 @@
         "url": "https://github.com/NixOS/nixpkgs/archive/1fe82110febdf005d97b2927610ee854a38a8f26.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
+    "nixpkgs-fmt": {
+        "branch": "master",
+        "description": "Nix code formatter for nixpkgs [maintainer=@zimbatm]",
+        "homepage": "https://nix-community.github.io/nixpkgs-fmt/",
+        "owner": "nix-community",
+        "repo": "nixpkgs-fmt",
+        "rev": "d59536f359337715b8cf6b8706d183659432b3cd",
+        "sha256": "1d34ihrqv3rcrinhbf1p3rg3ygs3s5z8a5wry23xyccq7bqmrw4a",
+        "type": "tarball",
+        "url": "https://github.com/nix-community/nixpkgs-fmt/archive/d59536f359337715b8cf6b8706d183659432b3cd.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "nixpkgs-mozilla": {
         "branch": "master",
         "description": "mozilla related nixpkgs (extends nixos/nixpkgs repo)",

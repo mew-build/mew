@@ -5,8 +5,9 @@
 with import ./. args;
 pkgs.mkShell {
   nativeBuildInputs = [
-    pkgs.niv
     rust
     pkgs.asciidoctor
+    pkgs.niv
+    nixpkgs-fmt
   ];
 }

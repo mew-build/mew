@@ -1,7 +1,6 @@
 { sources ? import ./nix/sources.nix
 , pkgs ? import sources.nixpkgs {}
 }:
-
 let
   # TODO: is this really better than using it as an overlay?
   rust-overlay =
@@ -25,8 +24,15 @@ let
     inherit buildRustCrate;
     inherit (crate2nix-tools) generatedCargoNix;
   };
+
+  nixpkgs-fmt = (buildCargoCrates {
+    name = "nixpkgs-fmt";
+    # TODO: probably want to filter .gitignore or something
+    src = sources.nixpkgs-fmt;
+  }
+  ).nixpkgs-fmt.build;
 in
 pkgs.callPackage ./package.nix { inherit buildCargoCrates; } // {
-  inherit pkgs;
+  inherit pkgs nixpkgs-fmt;
   rust = rustChannel.rust;
 }
