@@ -18,6 +18,7 @@ render() {
 }
 
 # ugh, relative paths
+# TODO: https://github.com/jirutka/asciidoctor-html5s ?
 render -a docinfodir=doc/meta -a root=index.html "$@" \
   --out-file=index.html README.adoc
 render -a docinfodir=doc/meta -a root=index.html "$@" COPYING-*.adoc
