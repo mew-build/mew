@@ -119,6 +119,20 @@ implementation tightly integrated with the build store interface.
 
 Ensuring adherence to object‐capability principles is Very Important™.
 
+=== Implementation concerns
+
+==== Grammar
+
+It’d be nice to specify the language grammar
+as a hybrid parser‐pretty printer. I’ve always wanted to do that.
+
+I’d like to think about how to reconcile
+Roslyn‐style 1:1 concrete‐abstract syntax mapping
+that preserves comments and whitespace
+with Wadler‐style pretty-printing, which feels much more structured
+than just twiddling the whitespace fields according to
+a large library of rules to me.
+
 === Typed tree structure sketch
 
 [source,mewl]
