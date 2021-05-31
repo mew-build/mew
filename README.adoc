@@ -38,9 +38,9 @@ $ git clone https://github.com/mew-build/mew.git
 Development chat::
 Matrix::: https://matrix.to/#/#mew-build:matrix.org[#mew-build:matrix.org]
 (https://view.matrix.org/alias/%23mew-build:matrix.org[logs])
-IRC::: link:ircs://chat.freenode.net:6697/%23mew[#mew]
-on https://freenode.net/[freenode]
-(https://freenode.logbot.info/mew[logs])
+IRC::: link:ircs://irc.libera.chat:6697/%23mew[#mew]
+on https://libera.chat/[Libera.Chat]
+(https://libera.irclog.whitequark.org/mew/[logs])
 
 +
 The same room is bridged across both protocols.
